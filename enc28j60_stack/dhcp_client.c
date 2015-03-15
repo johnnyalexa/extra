@@ -14,15 +14,15 @@
  * (without retry in case of failure) but there will be no
  * lease renewal.
  *********************************************/
-#include <avr/io.h>
-#include <avr/pgmspace.h>
+//#include <avr/io.h>
+//#include <avr/pgmspace.h>
 #include <string.h>
 #include <stdlib.h>
 #include "include/net.h"
 #include "include/enc28j60.h"
 #include "include/ip_arp_udp_tcp.h"
 //will include ip_config.h for the selected application
-#include "../application/ip_config.h"
+#include "ip_config.h"
 
 #ifndef UDP_client
 #error "ERROR: you need to enable UDP_client support in ip_config.h to use the DHCP client"

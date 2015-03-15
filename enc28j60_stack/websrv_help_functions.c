@@ -10,12 +10,14 @@
  * the right defines for your application in ip_config.h you can 
  * significantly reduce the size of the resulting code.
  *********************************************/
-#include <avr/io.h>
+//#include <avr/io.h>
+#include "ch.h"
+#include "hal.h"
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
 //will include ip_config.h for the selected application
-#include "../application/ip_config.h"
+#include "ip_config.h"
 
 #ifdef FROMDECODE_websrv_help
 // search for a string of the form key=value in

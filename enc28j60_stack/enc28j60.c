@@ -12,18 +12,12 @@
  * Title: Microchip ENC28J60 Ethernet Interface Driver
  * Chip type           : ATMEGA88/ATMEGA168/ATMEGA328/ATMEGA644 with ENC28J60
  *********************************************/
-#include <avr/io.h>
 //will include ip_config.h for the selected application
-#include "../application/ip_config.h"
-
+#include "ip_config.h"
 #include "include/enc28j60.h"
-//
-#define F_CPU 12500000UL  // 12.5 MHz
-#ifndef ALIBC_OLD
-#include <util/delay_basic.h>
-#else
-#include <avr/delay.h>
-#endif
+
+#define F_CPU 72000000UL  // 72 MHz
+
 
 
 static uint8_t Enc28j60Bank;

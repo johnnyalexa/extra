@@ -8,8 +8,8 @@
  * DNS look-up functions based on the udp client
  *
  *********************************************/
-#include <avr/io.h>
-#include <avr/pgmspace.h>
+//#include <avr/io.h>
+//#include <avr/pgmspace.h>
 #include <string.h>
 #include <ctype.h>
 #include <stdlib.h>
@@ -17,7 +17,7 @@
 #include "include/enc28j60.h"
 #include "include/ip_arp_udp_tcp.h"
 //will include ip_config.h for the selected application
-#include "../application/ip_config.h"
+#include "ip_config.h"
 
 
 #ifndef UDP_client

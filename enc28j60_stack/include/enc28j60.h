@@ -22,7 +22,7 @@
 #define ENC28J60_H
 #include <inttypes.h>
 //will include ip_config.h for the selected application
-#include "../../application/ip_config.h"
+#include "ip_config.h"
 
 //#include "ip_config.h" // we set this ENC28J60_BROADCAST flag from ip_config.h to have one place with all the code optimisation flags
 

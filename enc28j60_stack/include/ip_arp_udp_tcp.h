@@ -14,9 +14,9 @@
 #define IP_ARP_UDP_TCP_H 1
 
 //will include ip_config.h for the selected application
-#include "../../application/ip_config.h"
+#include "ip_config.h"
 
-#include <avr/pgmspace.h>
+//#include <avr/pgmspace.h>
 
 // set my own mac address:
 extern void init_mac(uint8_t *mymac); // not needed if you call init_udp_or_www_server

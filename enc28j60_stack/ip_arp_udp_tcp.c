@@ -17,15 +17,15 @@
  *
  * Chip type           : ATMEGA88/168/328/644 with ENC28J60
  *********************************************/
-#include <avr/io.h>
-#include <avr/pgmspace.h>
+//#include <avr/io.h>
+//#include <avr/pgmspace.h>
 #include <string.h>
 #include <ctype.h>
 #include <stdlib.h>
 #include "include/net.h"
 #include "include/enc28j60.h"
 //will include ip_config.h for the selected application
-#include "../application/ip_config.h"
+#include "ip_config.h"
 
 
 // I use them to debug stuff:
@@ -100,14 +100,14 @@ static uint8_t ipnetmask[4]={255,255,255,255};
 #endif
 #if defined (ALL_clients) || defined (WOL_client)
 static uint8_t ipid=0x2; // IP-identification, it works as well if you do not change it but it is better to fill the field, we count this number up and wrap.
-const char iphdr[] PROGMEM ={0x45,0,0,0x82,0,0,0x40,0,0x20}; // 0x82 is the total len on ip, 0x20 is ttl (time to live), the second 0,0 is IP-identification and may be changed.
+const char iphdr[] ={0x45,0,0,0x82,0,0,0x40,0,0x20}; // 0x82 is the total len on ip, 0x20 is ttl (time to live), the second 0,0 is IP-identification and may be changed.
 #endif
 
 #define CLIENTMSS 750
 #define TCP_DATA_START ((uint16_t)TCP_SRC_PORT_H_P+(buf[TCP_HEADER_LEN_P]>>4)*4)
-const char arpreqhdr[] PROGMEM ={0,1,8,0,6,4,0,1};
+const char arpreqhdr[] ={0,1,8,0,6,4,0,1};
 #ifdef NTP_client
-const char ntpreqhdr[] PROGMEM ={0xe3,0,4,0xfa,0,1,0,0,0,1};
+const char ntpreqhdr[] ={0xe3,0,4,0xfa,0,1,0,0,0,1};
 #endif
 
 // The Ip checksum is calculated over the ip header only starting
@@ -848,8 +848,9 @@ void send_udp_transmit(uint8_t *buf,uint16_t datalen)
 
 void send_udp(uint8_t *buf,char *data,uint8_t datalen,uint16_t sport, const uint8_t *dip, uint16_t dport,const uint8_t *dstmac)
 {
-        send_udp_prepare(buf,sport, dip, dport,dstmac);
         uint8_t i=0;
+        send_udp_prepare(buf,sport, dip, dport,dstmac);
+
         // limit the length:
         if (datalen>220){
                 datalen=220;
