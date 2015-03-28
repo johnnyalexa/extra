@@ -415,7 +415,7 @@ uint16_t fill_tcp_data_p(uint8_t *buf,uint16_t pos, const char *progmem_s)
         // fill in tcp data at position pos
         //
         // with no options the data starts after the checksum + 2 more bytes (urgent ptr)
-        while ((c = pgm_read_byte(progmem_s++))) {
+        while ((c = *(progmem_s++))) {
                 buf[TCP_CHECKSUM_L_P+3+pos]=c;
                 pos++;
         }
@@ -651,7 +651,7 @@ void www_server_reply(uint8_t *buf,uint16_t dlen)
 void fill_buf_p(uint8_t *buf,uint16_t len, const char *progmem_str_p)
 {
         while (len){
-                *buf= pgm_read_byte(progmem_str_p);
+                *buf= *progmem_str_p;
                 buf++;
                 progmem_str_p++;
                 len--;

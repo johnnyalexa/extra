@@ -189,7 +189,7 @@ void mk_net_str(char *resultstr,uint8_t *ip_byte_str,uint8_t len,char separator,
         uint8_t i=0;
         uint8_t j=0;
         while(i<len){
-                itoa((int)ip_byte_str[i],&resultstr[j],base);
+             //   itoa((int)ip_byte_str[i],&resultstr[j],base);  ----must be replaced with sprintf
                 // search end of str:
                 while(resultstr[j]){j++;}
                 if (separator){ // no separator, separator==NULL is as well possible, suggested by andras tucsni
